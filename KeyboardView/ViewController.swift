@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
         let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
         let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as NSNumber).unsignedIntValue << 16
-        let animationCurve = UIViewAnimationOptions.fromRaw(UInt(rawAnimationCurve))!
+        let animationCurve = UIViewAnimationOptions.init(UInt(rawAnimationCurve))
         
         bottomLayoutConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMinY(convertedKeyboardEndFrame)
         
